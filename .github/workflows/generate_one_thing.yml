@@ -26,7 +26,7 @@ jobs:
       - name: Run generator script
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          GITHUB_PAGES_URL: ${{ secrets.GITHUB_PAGES_URL }}
+          PAGES_URL: ${{ secrets.PAGES_URL }}
         run: python scripts/generate_one_thing.py
 
       - name: Commit and push changes
