@@ -1,38 +1,59 @@
-name: Generate One Thing
+name: One Thing — Generate
 
 on:
+
   schedule:
-    - cron: '0 9 * * *'
+
+    # 6:30 AM MST (Arizona = UTC-7 year-round, no DST)
+
+    - cron: '30 13 * * 1-5'
+
   workflow_dispatch:
 
+permissions:
+
+  contents: write
+
 jobs:
+
   generate:
+
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
-      - name: Checkout repository
+
+      - name: Checkout
+
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
         with:
+
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+
+        uses: actions/setup-python@v5
+
+        with:
+
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install anthropic
 
-      - name: Run generator script
+        run: pip install requests anthropic Pillow
+
+      - name: Generate One Thing
+
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          PAGES_URL: ${{ secrets.PAGES_URL }}
-        run: python scripts/generate_one_thing.py
 
-      - name: Commit and push changes
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add docs/index.html
-          git diff --cached --quiet || git commit -m 'Update one thing'
-          git push
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+
+          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
+
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+
+          PAGES_URL:          ${{ secrets.PAGES_URL }}
+
+        run: python scripts/generate_one_thing.py
