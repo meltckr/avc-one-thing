@@ -9,7 +9,7 @@ import json
 import requests
 import subprocess
 from datetime import datetime
-from pathlib import Path
+from pathlib import Pat
 import anthropic
 from PIL import Image, ImageDraw, ImageFont
 
@@ -104,29 +104,39 @@ def generate_candidates(signals: str) -> list[dict]:
     print("🧠 Generating candidates with Claude...")
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
-    system = """You generate "One Thing" briefings for Mat Ishbia — CEO of UWM (#1 wholesale mortgage lender in the US) and owner of the Phoenix Suns.
+    system = """You generate "One Thing" briefings for Mat Ishbia — owner of the Phoenix Suns and CEO of UWM.
 
-Mat is a competitive, high-performing CEO and NBA owner. He values directness, competitive intelligence, and actionable framing. No fluff.
+The format is simple and deliberate:
 
-Produce exactly 4 candidates — one of each type:
+1. Start with something real that happened with the Phoenix Suns — a play, a dynamic, a decision, a result. Be specific. Name names. Use actual details from today's signals.
 
-1. INTEL — a competitive or market intelligence flash from NBA or UWM/mortgage
-2. LEADERSHIP — a notable move by another owner, CEO, or executive with a direct parallel to Mat's world
-3. LENS — a reframe or question for something he's currently navigating
-4. WILDCARD — the single most interesting signal from any domain today
+2. Extract the business concept hiding inside it. Not a lesson. Not advice. Just the underlying principle — expressed in clean, precise business language.
 
-Use this EXACT format (delimiters required for parser):
+3. Stop there. No implication. No "here's what this means for you." No UWM mention. No call to action.
+
+The reader is a highly competitive CEO. He will connect the dots himself. Your job is to put two things next to each other — the Suns moment and the concept — and leave space for his brain to do the rest.
+
+Tone: sharp, spare, confident. No filler. No hedging. No exclamation points.
+
+Produce exactly 4 candidates using this EXACT format:
 
 ###CANDIDATE_START###
+
 NUMBER: [1-4]
+
 TYPE: [INTEL / LEADERSHIP / LENS / WILDCARD]
-HEADLINE: [6-8 words. Punchy. No punctuation at end.]
-BODY: [2-3 sentences. Sharp, specific, named. No filler. Facts and names.]
-IMPLICATION: [One direct sentence. Start with "For Mat:" — connect to his UWM or Suns position]
-QUESTION: [One question worth sitting with today. No preamble.]
+
+HEADLINE: [6-8 words. The Suns observation. Specific and factual.]
+
+BODY: [2-3 sentences. What happened with the Suns. Real details, real names, real context.]
+
+CONCEPT: [2-3 sentences. The business principle inside it. No Suns mention. No UWM mention. Just the concept, clean.]
+
+QUESTION: [One question. Optional — only include if it arises naturally. Can be left as a single evocative line or omitted entirely.]
+
 ###CANDIDATE_END###
 
-No preamble or postamble. Four blocks only."""
+No preamble. No postamble. Four blocks only."""
 
     resp = client.messages.create(
         model="claude-sonnet-4-5",
@@ -147,10 +157,10 @@ def parse_candidates(raw: str) -> list[dict]:
         content = block.split("###CANDIDATE_END###")[0].strip()
         c = {}
         for line in content.splitlines():
-            for key in ["NUMBER", "TYPE", "HEADLINE", "BODY", "IMPLICATION", "QUESTION"]:
+            for key in ["NUMBER", "TYPE", "HEADLINE", "BODY", "CONCEPT", "QUESTION"]:
                 if line.startswith(f"{key}:"):
                     c[key.lower()] = line[len(key)+1:].strip()
-        if len(c) == 6:
+        if len(c) >= 5:
             candidates.append(c)
     return candidates
 
@@ -363,11 +373,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
 
     }}
 
-    .implication {{
-
-      display: flex;
-
-      gap: 12px;
+    .concept {{
 
       background: rgba(96,165,250,0.07);
 
@@ -381,9 +387,9 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
 
     }}
 
-    .implication-arrow {{ font-size: 1rem; margin-top: 1px; flex-shrink: 0; }}
+    
 
-    .implication-text {{ font-size: 0.9rem; line-height: 1.6; color: rgba(255,255,255,0.8); }}
+    .concept-text {{ font-size: 0.9rem; line-height: 1.6; color: rgba(255,255,255,0.8); }}
 
     .question-label {{
 
@@ -519,11 +525,9 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
 
     <p class="body-text">{body}</p>
 
-    <div class="implication">
+    <div class="concept">
 
-      <span class="implication-arrow">↳</span>
-
-      <span class="implication-text">{implication}</span>
+      <span class="concept-text">{concept}</span>
 
     </div>
 
@@ -555,7 +559,7 @@ def build_html(candidate: dict, og_image_url: str) -> str:
         type_emoji=TYPE_EMOJI.get(candidate["type"], "🎯"),
         type_label=TYPE_LABEL.get(candidate["type"], candidate["type"]),
         body=candidate["body"],
-        implication=candidate["implication"],
+        concept=candidate["concept"],
         question=candidate["question"],
     )
 
@@ -649,7 +653,7 @@ def build_og_image(candidate: dict, out_path: Path, fonts: dict) -> None:
 
     # Implication
     draw.rectangle([PAD, y, PAD + 3, y + 60], fill=blue_rgb)
-    for line in wrap_text_pil(candidate["implication"], f_sans_sm, draw, max_w - 22)[:2]:
+    for line in wrap_text_pil(candidate["concept"], f_sans_sm, draw, max_w - 22)[:2]:
         draw.text((PAD + 18, y), line, font=f_sans_sm, fill=(*white_rgb, 200))
         y += 28
 
