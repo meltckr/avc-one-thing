@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>The paradox of winning while being doubted — AVC One Thing</title>
+
+  <meta property="og:title" content="The paradox of winning while being doubted" />
+
+  <meta property="og:description" content="Phoenix just beat two playoff teams by 15+ points and the market still installed them as road underdogs. The disconnect..." />
+
+  <meta property="og:image" content="https://meltckr.github.io/avc-one-thing/one-thing-2026-03-13-3-og.png" />
+
+  <meta property="og:image:width" content="1200" />
+
+  <meta property="og:image:height" content="630" />
+
+  <meta property="og:type" content="website" />
+
+  <meta property="og:site_name" content="Accelerated Velocity Consulting" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="twitter:image" content="https://meltckr.github.io/avc-one-thing/one-thing-2026-03-13-3-og.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+
+      --navy:    #0B1D3A;
+
+      --deep:    #0F2340;
+
+      --gold:    #C8A45C;
+
+      --blue:    #60a5fa;
+
+      --arrow:   #93c5fd;
+
+      --white:   #F1F5F9;
+
+      --divider: rgba(255,255,255,0.08);
+
+    }
+
+    html, body {
+
+      min-height: 100vh;
+
+      background: var(--navy);
+
+      color: var(--white);
+
+      font-family: 'DM Sans', sans-serif;
+
+      -webkit-font-smoothing: antialiased;
+
+    }
+
+    body {
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 100vh;
+
+      padding: 2rem 1.5rem;
+
+    }
+
+    .card {
+
+      width: 100%;
+
+      max-width: 680px;
+
+      background: var(--deep);
+
+      border: 1px solid rgba(200,164,92,0.2);
+
+      border-radius: 16px;
+
+      padding: 2.5rem 2.5rem 2rem;
+
+      position: relative;
+
+      overflow: hidden;
+
+    }
+
+    .card::before {
+
+      content: '';
+
+      position: absolute;
+
+      inset: 0;
+
+      background: radial-gradient(ellipse at top left, rgba(96,165,250,0.06) 0%, transparent 60%);
+
+      pointer-events: none;
+
+    }
+
+    .top-bar {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      margin-bottom: 2rem;
+
+    }
+
+    .avc-logo { height: 32px; width: auto; }
+
+    .date {
+
+      font-size: 11px;
+
+      letter-spacing: 0.2em;
+
+      text-transform: uppercase;
+
+      color: rgba(255,255,255,0.35);
+
+    }
+
+    .type-badge {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 6px;
+
+      background: rgba(200,164,92,0.12);
+
+      border: 1px solid rgba(200,164,92,0.3);
+
+      border-radius: 6px;
+
+      padding: 4px 12px;
+
+      font-size: 11px;
+
+      font-weight: 600;
+
+      letter-spacing: 0.2em;
+
+      text-transform: uppercase;
+
+      color: var(--gold);
+
+      margin-bottom: 1.25rem;
+
+    }
+
+    h1 {
+
+      font-family: 'DM Serif Display', serif;
+
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+
+      font-weight: 400;
+
+      line-height: 1.2;
+
+      color: var(--white);
+
+      margin-bottom: 1.25rem;
+
+    }
+
+    .divider { height: 1px; background: var(--divider); margin: 1.5rem 0; }
+
+    .body-text {
+
+      font-size: 1rem;
+
+      line-height: 1.7;
+
+      color: rgba(255,255,255,0.75);
+
+      margin-bottom: 1.5rem;
+
+    }
+
+    .implication {
+
+      display: flex;
+
+      gap: 12px;
+
+      background: rgba(96,165,250,0.07);
+
+      border-left: 3px solid var(--blue);
+
+      border-radius: 0 8px 8px 0;
+
+      padding: 1rem 1.25rem;
+
+      margin-bottom: 1.5rem;
+
+    }
+
+    .implication-arrow { font-size: 1rem; margin-top: 1px; flex-shrink: 0; }
+
+    .implication-text { font-size: 0.9rem; line-height: 1.6; color: rgba(255,255,255,0.8); }
+
+    .question-label {
+
+      font-size: 10px;
+
+      letter-spacing: 0.25em;
+
+      text-transform: uppercase;
+
+      color: var(--gold);
+
+      font-weight: 600;
+
+      margin-bottom: 0.5rem;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+    }
+
+    .question-label::before {
+
+      content: '';
+
+      display: block;
+
+      width: 24px;
+
+      height: 1px;
+
+      background: var(--gold);
+
+    }
+
+    .question-text {
+
+      font-family: 'DM Serif Display', serif;
+
+      font-size: 1.05rem;
+
+      color: var(--gold);
+
+      line-height: 1.5;
+
+      font-style: italic;
+
+    }
+
+    .footer {
+
+      margin-top: 2rem;
+
+      padding-top: 1.25rem;
+
+      border-top: 1px solid var(--divider);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+    }
+
+    .footer-label {
+
+      font-size: 10px;
+
+      letter-spacing: 0.2em;
+
+      text-transform: uppercase;
+
+      color: rgba(255,255,255,0.25);
+
+    }
+
+    @media (max-width: 480px) {
+
+      .card { padding: 1.75rem 1.5rem 1.5rem; }
+
+      body { padding: 1rem; }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="card">
+
+    <div class="top-bar">
+
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 80" class="avc-logo" aria-label="AVC">
+
+        <g transform="translate(8,8)">
+
+          <circle cx="32" cy="32" r="30" stroke="#60a5fa" stroke-width="1.5" fill="none" opacity="0.15"/>
+
+          <circle cx="32" cy="32" r="22" stroke="#60a5fa" stroke-width="2" fill="none" opacity="0.35"/>
+
+          <circle cx="32" cy="32" r="14" stroke="#60a5fa" stroke-width="2.5" fill="none" opacity="0.6"/>
+
+          <line x1="24" y1="32" x2="44" y2="32" stroke="#93c5fd" stroke-width="3" stroke-linecap="round"/>
+
+          <polyline points="38,26 44,32 38,38" stroke="#93c5fd" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+        </g>
+
+        <line x1="82" y1="18" x2="82" y2="62" stroke="#334155" stroke-width="1"/>
+
+        <text x="98" y="32" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="800" letter-spacing="3" fill="#f1f5f9">ACCELERATED</text>
+
+        <text x="98" y="52" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="300" letter-spacing="3" fill="#60a5fa">VELOCITY</text>
+
+        <text x="98" y="68" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="400" letter-spacing="5.5" fill="#64748b">CONSULTING</text>
+
+      </svg>
+
+      <span class="date">Friday, March 13, 2026</span>
+
+    </div>
+
+    <div class="type-badge">🔭 Decision Lens</div>
+
+    <h1>The paradox of winning while being doubted</h1>
+
+    <div class="divider"></div>
+
+    <p class="body-text">Phoenix just beat two playoff teams by 15+ points and the market still installed them as road underdogs. The disconnect raises a framing question: is external skepticism a sign you're being underestimated or a legitimate signal that fundamentals don't support results? The Suns' 7th-place standing suggests the latter — good teams don't get disrespected by Vegas.</p>
+
+    <div class="implication">
+
+      <span class="implication-arrow">↳</span>
+
+      <span class="implication-text">For Mat: When UWM posts strong quarters but analysts remain bearish on wholesale, the question is whether you're building something they can't see or ignoring what the market does.</span>
+
+    </div>
+
+    <div class="question-label">Today's Question</div>
+
+    <div class="question-text">Is skepticism from smart observers a gift or a warning sign you're choosing to ignore?</div>
+
+    <div class="footer">
+
+      <span class="footer-label">AVC One Thing — Friday, March 13, 2026</span>
+
+      <span class="footer-label">acceleratedvelocity.com</span>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>

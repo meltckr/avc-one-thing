@@ -1,39 +1,39 @@
 {
-  "date": "Thursday, March 12, 2026",
-  "date_slug": "2026-03-12",
-  "generated": "2026-03-12T23:39:41.393300",
+  "date": "Friday, March 13, 2026",
+  "date_slug": "2026-03-13",
+  "generated": "2026-03-13T13:51:42.809796",
   "candidates": [
     {
       "number": "1",
       "type": "INTEL",
-      "headline": "Suns hit 24 threes in Bucks blowout",
-      "body": "Phoenix dropped 24 made threes on Milwaukee in a 129-114 win \u2014 a season-high. Royce O'Neale went 7-for-3s with 21 points, Jalen Green added 25, Booker had 27. Deep bench contributors like Gillespie (near triple-double) and rookies Maluach and Ighodaro were efficient. Team now 30 wins after 4-1 stretch.",
-      "implication": "For Mat: this is the depth and spacing clicking at scale \u2014 exactly what you built the roster to deliver in high-pressure stretches.",
-      "question": "Is this shooting variance or have rotations finally unlocked a sustainable three-point identity?"
+      "headline": "Suns enter Toronto as road underdogs despite streak",
+      "body": "Phoenix is +4.5 underdog at Scotiabank Arena tonight despite riding a 4-game win streak that includes victories over playoff-contending Milwaukee and Indiana. The Suns hit a season-high 24 threes against Milwaukee and Jalen Green just dropped 17 fourth-quarter points against Indiana. Oddsmakers aren't buying the momentum \u2014 market sees vulnerability in a 7th-seed road team.",
+      "implication": "For Mat: Vegas line suggests the streak is sample-size noise, not sustainable shift \u2014 mirrors wholesale origination surges that don't reflect channel fundamentals.",
+      "question": "When you see a hot streak in your business, how quickly can you distinguish real momentum from statistical variance?"
     },
     {
       "number": "2",
       "type": "LEADERSHIP",
-      "headline": "No comparable executive moves surfaced today",
-      "body": "No timely signals from other NBA owners, mortgage CEOs, or adjacent executives making notable strategic pivots, acquisitions, or public positioning in the last 24 hours. Clean slate across competitive intelligence channels.",
-      "implication": "For Mat: silence from competitors can mean either complacency or stealth \u2014 both create windows.",
-      "question": "Where are your competitors quiet right now that you should be loud?"
+      "headline": "Allen and Brooks injuries testing rotation depth decisions",
+      "body": "Grayson Allen is out for knee management and Dillon Brooks remains not cleared for contact post-hand surgery, forcing coach adjustments during a playoff positioning stretch. The Suns are 7th in the West at 39-27 with 16 games remaining \u2014 every rotation decision compounds. Meanwhile, the backcourt duo of Green and Booker is carrying offensive load in their absence.",
+      "implication": "For Mat: Depth chart pressure during critical windows reveals who you've developed as true contributors versus roster filler \u2014 same logic applies to UWM's leadership bench.",
+      "question": "If two of your top five executives went down today, does your org chart reveal depth or desperation?"
     },
     {
       "number": "3",
       "type": "LENS",
-      "headline": "Green-Booker chemistry becoming measurable asset",
-      "body": "Analysts are now explicitly tracking the Jalen Green-Devin Booker pairing as a building block. They're scoring in tandem (52 combined vs. Milwaukee) and creating space for role players to overperform. This isn't just talent \u2014 it's emerging two-man system architecture.",
-      "implication": "For Mat: you bet on this pairing's upside \u2014 now the question is whether coaching can systematize it before playoffs.",
-      "question": "What's the equivalent \"two-person system\" you're building at UWM that isn't fully systematized yet?"
+      "headline": "The paradox of winning while being doubted",
+      "body": "Phoenix just beat two playoff teams by 15+ points and the market still installed them as road underdogs. The disconnect raises a framing question: is external skepticism a sign you're being underestimated or a legitimate signal that fundamentals don't support results? The Suns' 7th-place standing suggests the latter \u2014 good teams don't get disrespected by Vegas.",
+      "implication": "For Mat: When UWM posts strong quarters but analysts remain bearish on wholesale, the question is whether you're building something they can't see or ignoring what the market does.",
+      "question": "Is skepticism from smart observers a gift or a warning sign you're choosing to ignore?"
     },
     {
       "number": "4",
       "type": "WILDCARD",
-      "headline": "Deep bench execution outperforming starter expectations",
-      "body": "Collin Gillespie flirted with a triple-double (12-9-9 with 3 steals), Ryan Ighodaro went 4-4, rookie Maluach 4-5. These aren't garbage-time stats \u2014 they're rotation-quality production in a competitive game. Depth is no longer theoretical; it's delivering in real minutes against playoff teams.",
-      "implication": "For Mat: depth only matters if you trust it in high-stakes moments \u2014 looks like your coaching staff finally does.",
-      "question": "Where in UWM are you sitting on proven depth you haven't fully deployed yet?"
+      "headline": "Season-high three-point performance reveals offensive identity shift",
+      "body": "The Suns hit 24 threes against Milwaukee on March 10 \u2014 a season high that signals either a hot shooting night or a strategic evolution in offensive approach. Volume three-point shooting has become the NBA's dominant meta-strategy, but Phoenix historically hasn't been built around it. One game doesn't define identity, but it's worth tracking whether this becomes a repeatable weapon or a statistical outlier.",
+      "implication": "For Mat: The best competitive moves look like one-offs until they become patterns \u2014 worth asking if this signals Phoenix adopting the modern NBA's dominant strategy or just variance.",
+      "question": "What would your business look like if you fully committed to the strategy everyone else already knows works?"
     }
   ]
 }
